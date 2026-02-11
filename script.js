@@ -133,7 +133,7 @@ const skillObserver = new IntersectionObserver(
 skillBars.forEach(bar => skillObserver.observe(bar));
 
 
-// ===== CONTACT FORM (Formspree) =====
+// ===== CONTACT FORM (Self-hosted via Netlify Function) =====
 const contactForm = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const btnText = document.getElementById('btnText');
@@ -143,28 +143,37 @@ const formError = document.getElementById('formError');
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Disable button and show spinner
+    // Disable button and show loading
     submitBtn.disabled = true;
     btnText.textContent = 'Sending...';
 
     // Hide previous feedback
     formError.classList.remove('show');
 
+    const payload = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+
     try {
-        const response = await fetch(contactForm.action, {
+        const response = await fetch('/.netlify/functions/contact', {
             method: 'POST',
-            body: new FormData(contactForm),
-            headers: { 'Accept': 'application/json' }
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
         });
+
+        const data = await response.json();
 
         if (response.ok) {
             // Show success message, hide form
             contactForm.style.display = 'none';
             formSuccess.classList.add('show');
         } else {
-            throw new Error('Form submission failed');
+            throw new Error(data.error || 'Form submission failed');
         }
     } catch (error) {
+        formError.textContent = error.message || 'Something went wrong. Please try again or email me directly.';
         formError.classList.add('show');
         submitBtn.disabled = false;
         btnText.textContent = 'Send Message';
