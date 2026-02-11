@@ -30,6 +30,39 @@ const headers = {
     "Content-Type": "application/json",
 };
 
+// ── Sanitise HTML to prevent XSS ──
+function sanitize(str) {
+    return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;")
+        .trim()
+        .slice(0, 2000); // Max 2000 chars
+}
+
+// ── Server-side rate limiting via Supabase ──
+async function checkServerRateLimit(email) {
+    try {
+        const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000).toISOString();
+        const { data, error } = await supabase
+            .from("messages")
+            .select("id", { count: "exact" })
+            .eq("email", email.toLowerCase())
+            .gte("created_at", fiveMinAgo);
+
+        if (error) {
+            console.error("Rate limit check error:", error);
+            return true; // Allow on error (fail open)
+        }
+        return (data?.length || 0) < 3; // Max 3 per 5 minutes per email
+    } catch (err) {
+        console.error("Rate limit exception:", err);
+        return true;
+    }
+}
+
 exports.handler = async (event) => {
     // Handle preflight
     if (event.httpMethod === "OPTIONS") {
@@ -46,7 +79,18 @@ exports.handler = async (event) => {
 
     try {
         // ── Parse & validate ──
-        const { name, email, message } = JSON.parse(event.body);
+        let body;
+        try {
+            body = JSON.parse(event.body);
+        } catch {
+            return {
+                statusCode: 400,
+                headers,
+                body: JSON.stringify({ error: "Invalid request" }),
+            };
+        }
+
+        const { name, email, message } = body;
 
         if (!name || !email || !message) {
             return {
@@ -65,14 +109,31 @@ exports.handler = async (event) => {
             };
         }
 
+        // Sanitise inputs
+        const safeName = sanitize(name);
+        const safeEmail = email.trim().toLowerCase().slice(0, 254);
+        const safeMessage = sanitize(message);
+
+        // ── Server-side rate limit ──
+        const allowed = await checkServerRateLimit(safeEmail);
+        if (!allowed) {
+            return {
+                statusCode: 429,
+                headers,
+                body: JSON.stringify({
+                    error: "Too many messages. Please wait a few minutes.",
+                }),
+            };
+        }
+
         const errors = [];
 
-        // ── Save to Supabase (non-blocking) ──
+        // ── Save to Supabase ──
         try {
             const { error: dbError } = await supabase.from("messages").insert({
-                name: name.trim(),
-                email: email.trim().toLowerCase(),
-                message: message.trim(),
+                name: safeName,
+                email: safeEmail,
+                message: safeMessage,
             });
             if (dbError) {
                 console.error("Supabase error:", JSON.stringify(dbError));
@@ -91,17 +152,17 @@ exports.handler = async (event) => {
             await transporter.sendMail({
                 from: `"Portfolio Contact" <${OWNER_EMAIL}>`,
                 to: OWNER_EMAIL,
-                subject: `New message from ${name}`,
+                subject: `New message from ${safeName}`,
                 html: `
           <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 32px; background: #0f172a; color: #e2e8f0; border-radius: 16px;">
             <h2 style="color: #60a5fa; margin-bottom: 24px;">New Portfolio Message</h2>
             <div style="background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 16px;">
-              <p style="margin: 0 0 8px;"><strong style="color: #94a3b8;">From:</strong> ${name}</p>
-              <p style="margin: 0 0 8px;"><strong style="color: #94a3b8;">Email:</strong> <a href="mailto:${email}" style="color: #60a5fa;">${email}</a></p>
+              <p style="margin: 0 0 8px;"><strong style="color: #94a3b8;">From:</strong> ${safeName}</p>
+              <p style="margin: 0 0 8px;"><strong style="color: #94a3b8;">Email:</strong> <a href="mailto:${safeEmail}" style="color: #60a5fa;">${safeEmail}</a></p>
             </div>
             <div style="background: #1e293b; padding: 20px; border-radius: 12px;">
               <p style="margin: 0 0 8px;"><strong style="color: #94a3b8;">Message:</strong></p>
-              <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${message}</p>
+              <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${safeMessage}</p>
             </div>
             <p style="color: #64748b; font-size: 0.8rem; margin-top: 20px; text-align: center;">Sent from your portfolio website</p>
           </div>
@@ -116,11 +177,11 @@ exports.handler = async (event) => {
         try {
             await transporter.sendMail({
                 from: `"Arvinth Srinivasasekar" <${OWNER_EMAIL}>`,
-                to: email,
+                to: safeEmail,
                 subject: "Thanks for reaching out!",
                 html: `
           <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 32px; background: #0f172a; color: #e2e8f0; border-radius: 16px;">
-            <h2 style="color: #60a5fa; margin-bottom: 16px;">Hi ${name}!</h2>
+            <h2 style="color: #60a5fa; margin-bottom: 16px;">Hi ${safeName}!</h2>
             <p style="line-height: 1.7; margin-bottom: 16px;">Thank you so much for reaching out through my portfolio. I've received your message and will get back to you <strong>within 24 hours</strong>.</p>
             <p style="line-height: 1.7; margin-bottom: 16px;">In the meantime, feel free to connect with me:</p>
             <div style="text-align: center; margin: 24px 0;">
@@ -136,7 +197,6 @@ exports.handler = async (event) => {
             errors.push("reply: " + replyErr.message);
         }
 
-        // Return success even if some parts failed (as long as we got here)
         if (errors.length > 0) {
             console.error("Partial errors:", errors.join("; "));
         }
@@ -151,7 +211,7 @@ exports.handler = async (event) => {
         return {
             statusCode: 500,
             headers,
-            body: JSON.stringify({ error: "Something went wrong: " + err.message }),
+            body: JSON.stringify({ error: "Something went wrong. Please try again." }),
         };
     }
 };

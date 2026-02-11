@@ -286,3 +286,68 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+
+// ===== OBFUSCATED CONTACT INFO (anti-scraping) =====
+// Email and phone are base64-encoded so bots can't harvest them from HTML source
+const _c = {
+    e: [97, 114, 118, 105, 110, 116, 104, 115, 114, 105, 110, 105, 118, 97, 115, 64, 103, 109, 97, 105, 108, 46, 99, 111, 109],
+    p: [43, 52, 52, 32, 48, 55, 51, 53, 50, 32, 54, 57, 52, 48, 57, 49],
+    pt: [43, 52, 52, 48, 55, 51, 53, 50, 54, 57, 52, 48, 57, 49]
+};
+
+function _d(arr) { return arr.map(c => String.fromCharCode(c)).join(''); }
+
+// Populate on page load (bots don't execute JS)
+document.addEventListener('DOMContentLoaded', () => {
+    const em = _d(_c.e);
+    const ph = _d(_c.p);
+    const pht = _d(_c.pt);
+
+    const emailLink = document.getElementById('email-link');
+    const emailDisplay = document.getElementById('email-display');
+    const phoneLink = document.getElementById('phone-link');
+    const phoneDisplay = document.getElementById('phone-display');
+    const footerEmail = document.getElementById('footer-email-link');
+
+    if (emailLink) {
+        emailLink.href = 'mai' + 'lto:' + em;
+        emailDisplay.textContent = em;
+    }
+    if (phoneLink) {
+        phoneLink.href = 'te' + 'l:' + pht;
+        phoneDisplay.textContent = ph;
+    }
+    if (footerEmail) {
+        footerEmail.href = 'mai' + 'lto:' + em;
+    }
+});
+
+
+// ===== RATE LIMITING (client-side) =====
+const RATE_LIMIT_KEY = 'cf_submissions';
+const RATE_LIMIT_MAX = 3;
+const RATE_LIMIT_WINDOW = 5 * 60 * 1000; // 5 minutes
+
+function checkRateLimit() {
+    const now = Date.now();
+    let submissions = JSON.parse(sessionStorage.getItem(RATE_LIMIT_KEY) || '[]');
+    submissions = submissions.filter(t => now - t < RATE_LIMIT_WINDOW);
+    if (submissions.length >= RATE_LIMIT_MAX) return false;
+    submissions.push(now);
+    sessionStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(submissions));
+    return true;
+}
+
+// Patch the form submit to check rate limit first
+const originalSubmit = contactForm.onsubmit;
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', (e) => {
+    if (!checkRateLimit()) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        const err = document.getElementById('formError');
+        err.textContent = 'Too many messages. Please wait a few minutes before trying again.';
+        err.classList.add('show');
+    }
+}, true);
