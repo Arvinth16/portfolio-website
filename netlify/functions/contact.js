@@ -1,14 +1,22 @@
 const { createClient } = require("@supabase/supabase-js");
-const { Resend } = require("resend");
+const nodemailer = require("nodemailer");
 
-// ── Initialise clients from env vars ──
+// ── Initialise Supabase ──
 const supabase = createClient(
     process.env.SUPABASE_URL,
     process.env.SUPABASE_KEY
 );
-const resend = new Resend(process.env.RESEND_API_KEY);
 
-const OWNER_EMAIL = "arvinthsrinivas@gmail.com";
+// ── Gmail SMTP transporter ──
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+    },
+});
+
+const OWNER_EMAIL = process.env.GMAIL_USER;
 
 // ── CORS headers ──
 const headers = {
@@ -62,12 +70,11 @@ exports.handler = async (event) => {
 
         if (dbError) {
             console.error("Supabase error:", dbError);
-            // Continue even if DB save fails — email is more important
         }
 
         // ── Notify Arvinth ──
-        await resend.emails.send({
-            from: "Portfolio <onboarding@resend.dev>",
+        await transporter.sendMail({
+            from: `"Portfolio Contact" <${OWNER_EMAIL}>`,
             to: OWNER_EMAIL,
             subject: `💬 New message from ${name}`,
             html: `
@@ -87,8 +94,8 @@ exports.handler = async (event) => {
         });
 
         // ── Auto-reply to sender ──
-        await resend.emails.send({
-            from: "Arvinth Srinivasasekar <onboarding@resend.dev>",
+        await transporter.sendMail({
+            from: `"Arvinth Srinivasasekar" <${OWNER_EMAIL}>`,
             to: email,
             subject: "Thanks for reaching out! 👋",
             html: `
