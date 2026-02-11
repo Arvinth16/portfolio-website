@@ -133,22 +133,42 @@ const skillObserver = new IntersectionObserver(
 skillBars.forEach(bar => skillObserver.observe(bar));
 
 
-// ===== CONTACT FORM =====
+// ===== CONTACT FORM (Formspree) =====
 const contactForm = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const btnText = document.getElementById('btnText');
+const formSuccess = document.getElementById('formSuccess');
+const formError = document.getElementById('formError');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    // Disable button and show spinner
+    submitBtn.disabled = true;
+    btnText.textContent = 'Sending...';
 
-    // Create mailto link
-    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    window.location.href = `mailto:arvinthsrinivas@gmail.com?subject=${subject}&body=${body}`;
+    // Hide previous feedback
+    formError.classList.remove('show');
 
-    contactForm.reset();
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            // Show success message, hide form
+            contactForm.style.display = 'none';
+            formSuccess.classList.add('show');
+        } else {
+            throw new Error('Form submission failed');
+        }
+    } catch (error) {
+        formError.classList.add('show');
+        submitBtn.disabled = false;
+        btnText.textContent = 'Send Message';
+    }
 });
 
 
