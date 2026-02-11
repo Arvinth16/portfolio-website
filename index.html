@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Arvinth Srinivasasekar – Data Scientist & ML Engineer. MS Data Science at King's College London. Python, SQL, Machine Learning, NLP, and AI.">
+  <title>Arvinth Srinivasasekar | Data Scientist & ML Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Particles Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">A<span>S</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">Get in Touch</a>
+        </li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Available Spring 2026 · London & Europe
+        </div>
+        <h1>Arvinth<br>Srinivasasekar</h1>
+        <div class="typed-wrapper">
+          <span id="typed-text"></span><span class="typed-cursor">|</span>
+        </div>
+        <p>MS Data Science student at King's College London, building intelligent systems that turn complex data into
+          actionable insight. Passionate about using code to solve real-world problems — from predicting health risks to
+          forecasting renewable energy.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            View Projects
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            Contact Me
+          </a>
+          <a href="https://github.com/Arvinth16" target="_blank" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <h3>5+</h3>
+            <p>Technical Projects</p>
+          </div>
+          <div class="hero-stat">
+            <h3>4</h3>
+            <p>Certifications</p>
+          </div>
+          <div class="hero-stat">
+            <h3>3</h3>
+            <p>Languages Spoken</p>
+          </div>
+          <div class="hero-stat">
+            <h3>92%</h3>
+            <p>Best Model Accuracy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <span class="section-title reveal">About Me</span>
+      <p class="section-subtitle reveal">Curious, collaborative, and committed to writing code that matters.</p>
+
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <div class="about-image-card">
+            <div class="about-code">
+              <span class="comment"># who_am_i.py</span><br>
+              <br>
+              <span class="keyword">class</span> <span class="function">DataScientist</span>:<br>
+              &nbsp;&nbsp;<span class="keyword">def</span> <span class="function">__init__</span>(<span
+                class="variable">self</span>):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">self</span>.name = <span class="string">"Arvinth
+                Srinivasasekar"</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">self</span>.education = <span class="string">"MS Data
+                Science, KCL"</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">self</span>.location = <span class="string">"London,
+                UK"</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">self</span>.languages = [<span
+                class="string">"Python"</span>, <span class="string">"SQL"</span>, <span
+                class="string">"MATLAB"</span>]<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">self</span>.interests = [<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Competition Economics"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"NLP &amp; Text Analysis"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Data Pipelines"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"ML for Regulatory Analysis"</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;]<br>
+              <br>
+              &nbsp;&nbsp;<span class="keyword">def</span> <span class="function">solve</span>(<span
+                class="variable">self</span>, problem):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                class="variable">self</span>.think(problem)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.wrangle_data()<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.build_model()<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.ship_it() <span class="comment"># 🚀</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text reveal">
+          <p>I'm a data scientist who loves turning messy, complex datasets into clear, evidence-based answers. My
+            Master's at King's College London deepened my expertise in machine learning, statistical modelling, and big
+            data analytics — building on a strong foundation from my B.Tech in Computer Science at VIT.</p>
+
+          <p>What drives me is the intersection of <strong>data and real-world impact</strong>. Whether it's building
+            neural networks to predict health outcomes, engineering ensemble models for energy forecasting, or
+            developing blockchain systems for secure governance — I'm most engaged when my code solves genuine problems.
+          </p>
+
+          <h3>Why I'm excited about economic consulting</h3>
+          <p>The challenge of analysing transaction records, pricing data, and market structures to answer questions
+            like <em>"Is this merger good for consumers?"</em> — that's exactly the kind of puzzle I want to solve. I
+            thrive in collaborative environments where curiosity is valued and fresh ideas matter.</p>
+
+          <div class="about-highlights">
+            <div class="highlight-card">
+              <div class="icon">🧠</div>
+              <h4>Analytical Thinker</h4>
+              <p>Data-driven problem solving with statistical rigour</p>
+            </div>
+            <div class="highlight-card">
+              <div class="icon">🤝</div>
+              <h4>Team Player</h4>
+              <p>Led teams of 3-5 across multiple projects</p>
+            </div>
+            <div class="highlight-card">
+              <div class="icon">🚀</div>
+              <h4>Fast Learner</h4>
+              <p>International research at NUS and NTU</p>
+            </div>
+            <div class="highlight-card">
+              <div class="icon">💬</div>
+              <h4>Clear Communicator</h4>
+              <p>Best Presenter award at NTU Singapore</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <span class="section-title reveal">Technical Skills</span>
+      <p class="section-subtitle reveal">Tools and technologies I use to deliver data-driven solutions.</p>
+
+      <div class="skills-grid">
+        <!-- Programming & Data -->
+        <div class="skill-category reveal reveal-delay-1">
+          <div class="skill-category-icon">⌨️</div>
+          <h3>Programming & Data</h3>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">Python</span>
+              <span class="skill-item-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="92"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">SQL</span>
+              <span class="skill-item-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="88"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">Pandas / NumPy</span>
+              <span class="skill-item-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="90"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">MATLAB</span>
+              <span class="skill-item-level">Intermediate</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="65"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">ETL</span>
+            <span class="skill-tag">Data Pipelines</span>
+            <span class="skill-tag">VBA</span>
+          </div>
+        </div>
+
+        <!-- ML & AI -->
+        <div class="skill-category reveal reveal-delay-2">
+          <div class="skill-category-icon">🤖</div>
+          <h3>Machine Learning & AI</h3>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">TensorFlow / Keras</span>
+              <span class="skill-item-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="85"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">NLP & Text Analysis</span>
+              <span class="skill-item-level">Intermediate</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="75"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">Deep Learning (ANN/CNN/RNN)</span>
+              <span class="skill-item-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="83"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">Ensemble Methods</span>
+              <span class="skill-item-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="80"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">Transformers</span>
+            <span class="skill-tag">XGBoost</span>
+            <span class="skill-tag">SVM</span>
+          </div>
+        </div>
+
+        <!-- Data Viz -->
+        <div class="skill-category reveal reveal-delay-3">
+          <div class="skill-category-icon">📊</div>
+          <h3>Visualisation & Analytics</h3>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">Power BI</span>
+              <span class="skill-item-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="88"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">Matplotlib / Seaborn</span>
+              <span class="skill-item-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="85"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">Tableau</span>
+              <span class="skill-item-level">Intermediate</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="70"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">Bloomberg Terminal</span>
+              <span class="skill-item-level">Familiar</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="50"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Statistical Analysis</span>
+            <span class="skill-tag">Hypothesis Testing</span>
+          </div>
+        </div>
+
+        <!-- Cloud & Tools -->
+        <div class="skill-category reveal reveal-delay-4">
+          <div class="skill-category-icon">☁️</div>
+          <h3>Cloud & DevOps</h3>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">Microsoft Azure</span>
+              <span class="skill-item-level">Intermediate</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="70"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">Git / Version Control</span>
+              <span class="skill-item-level">Advanced</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="85"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">CI/CD & MLOps</span>
+              <span class="skill-item-level">Intermediate</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="60"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-header">
+              <span class="skill-item-name">APIs & Web Development</span>
+              <span class="skill-item-level">Intermediate</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-width="68"></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">IBM Watson</span>
+            <span class="skill-tag">Azure ML</span>
+            <span class="skill-tag">Apache Spark</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <span class="section-title reveal">Featured Projects</span>
+      <p class="section-subtitle reveal">Real things I've built — from neural networks to blockchain systems.</p>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-header">
+            <div class="project-icon">🖐️</div>
+            <span class="project-date">Dec 2023 – Apr 2024</span>
+          </div>
+          <h3>Gesture & Voice Recognition Control System</h3>
+          <p>Led a team of 4 to build a real-time gesture and voice recognition system for accessibility applications —
+            combining computer vision and NLP.</p>
+          <ul class="project-results">
+            <li>Achieved 92% real-time accuracy on gesture classification</li>
+            <li>Improved model responsiveness by 25% through data augmentation and hyperparameter tuning</li>
+            <li>Integrated NLP-based speech recognition processing 50+ unique voice commands</li>
+          </ul>
+          <div class="project-tech">
+            <span>Python</span>
+            <span>TensorFlow</span>
+            <span>OpenCV</span>
+            <span>NLP</span>
+            <span>Deep Learning</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-header">
+            <div class="project-icon">🏥</div>
+            <span class="project-date">Aug – Dec 2024</span>
+          </div>
+          <h3>Diabetes Risk Assessment — ANN Model</h3>
+          <p>Engineered an artificial neural network to predict diabetes risk from patient health data, supporting early
+            detection and preventive healthcare.</p>
+          <ul class="project-results">
+            <li>87% prediction accuracy on a 10,000+ patient dataset</li>
+            <li>Feature selection and normalization pipelines improved performance by 15%</li>
+            <li>Cross-validation and confusion matrix analysis for fine-tuned thresholds</li>
+          </ul>
+          <div class="project-tech">
+            <span>TensorFlow</span>
+            <span>Scikit-learn</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>ANN</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-header">
+            <div class="project-icon">🗳️</div>
+            <span class="project-date">Nov 2024</span>
+          </div>
+          <h3>Blockchain Voting System</h3>
+          <p>End-to-end blockchain voting prototype for secure, tamper-proof elections — demonstrated at the Tamil Nadu
+            Government Academic Conference.</p>
+          <ul class="project-results">
+            <li>Reduced transaction validation time by 20% with optimized smart contracts</li>
+            <li>Built on Ethereum testnet with full transparency and auditability</li>
+            <li>Directed team of 5 through agile sprints with 100% milestone completion</li>
+          </ul>
+          <div class="project-tech">
+            <span>Blockchain</span>
+            <span>Ethereum</span>
+            <span>Smart Contracts</span>
+            <span>Agile</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card reveal reveal-delay-4">
+          <div class="project-header">
+            <div class="project-icon">☀️</div>
+            <span class="project-date">Dec 2024 – Mar 2025</span>
+          </div>
+          <h3>Solar Power Forecasting — Stacking Ensemble</h3>
+          <p>Research project combining GRNN, ENN, and BPN networks into a stacking ensemble for high-accuracy solar
+            power generation forecasting.</p>
+          <ul class="project-results">
+            <li>95% forecasting accuracy over 3 years of time-series data</li>
+            <li>18% improvement in predictive stability vs single-model baselines</li>
+            <li>Led 3-person team to build reproducible forecasting pipelines</li>
+          </ul>
+          <div class="project-tech">
+            <span>Python</span>
+            <span>MATLAB</span>
+            <span>Ensemble ML</span>
+            <span>Time Series</span>
+            <span>Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE & EDUCATION ===== -->
+  <section class="timeline-section" id="experience">
+    <div class="container">
+      <span class="section-title reveal">Experience & Education</span>
+      <p class="section-subtitle reveal">My journey from engineering fundamentals to data science research.</p>
+
+      <div class="timeline">
+        <!-- KCL -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="badge badge-education">Education</span>
+            <h3>Master of Science in Data Science</h3>
+            <p class="org">King's College London</p>
+            <p class="period">September 2025 – Present · London, UK</p>
+            <ul>
+              <li>Specialising in advanced machine learning, big data analytics, and statistical modelling</li>
+              <li>Deepening expertise in NLP, deep learning architectures, and cloud-based ML deployment</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Arus Info -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="badge badge-work">Work Experience</span>
+            <h3>Data Analytics Intern</h3>
+            <p class="org">Arus Info Pvt Ltd</p>
+            <p class="period">November 2023 – December 2023 · Bangalore, India</p>
+            <ul>
+              <li>Automated 5+ manual reporting workflows using Power BI and Excel, reducing processing time by 30%</li>
+              <li>Developed VBA and Python automation scripts that cut repetitive data entry by 40%</li>
+              <li>Collaborated across a 5-member analytics team for faster report turnaround and improved data accuracy
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- VIT -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="badge badge-education">Education</span>
+            <h3>B.Tech in Computer Science & Engineering</h3>
+            <p class="org">Vellore Institute of Technology (VIT)</p>
+            <p class="period">June 2021 – May 2025 · Vellore, India</p>
+            <ul>
+              <li>IoT Specialization · CGPA: 8.35/10.0</li>
+              <li>Strong foundation in data structures, programming, AI/ML, and neural networks</li>
+              <li>Active in technical clubs, hackathons, and leadership roles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section class="certifications" id="certifications">
+    <div class="container">
+      <span class="section-title reveal">Certifications & Awards</span>
+      <p class="section-subtitle reveal">Continuous learning through international programs and industry certifications.
+      </p>
+
+      <div class="cert-grid">
+        <div class="cert-card reveal reveal-delay-1">
+          <div class="cert-icon">🎓</div>
+          <div class="cert-info">
+            <h4>AI-Powered Business Analytics</h4>
+            <p class="cert-org">National University of Singapore (NUS)</p>
+            <p class="cert-date">July 2023</p>
+          </div>
+        </div>
+
+        <div class="cert-card reveal reveal-delay-2">
+          <div class="cert-icon">🧠</div>
+          <div class="cert-info">
+            <h4>Introduction to Artificial Intelligence</h4>
+            <p class="cert-org">Nanyang Technological University (NTU)</p>
+            <p class="cert-date">March 2023</p>
+          </div>
+        </div>
+
+        <div class="cert-card reveal reveal-delay-3">
+          <div class="cert-icon">📈</div>
+          <div class="cert-info">
+            <h4>Data Analytics Externship</h4>
+            <p class="cert-org">IBM</p>
+            <p class="cert-date">December 2022</p>
+          </div>
+        </div>
+
+        <div class="cert-card reveal reveal-delay-4">
+          <div class="cert-icon">🏆</div>
+          <div class="cert-info">
+            <h4>Best Presenter Award</h4>
+            <p class="cert-org">Nanyang Technological University (NTU)</p>
+            <p class="cert-date">March 2023 · AI Presentation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <span class="section-title reveal">Let's Connect</span>
+      <p class="section-subtitle reveal">Interested in working together? I'd love to hear from you.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Get in Touch</h3>
+          <p>I'm actively looking for a Graduate Data Scientist role starting Spring 2026. Whether you have a question,
+            want to discuss a project, or just want to say hello — my inbox is always open.</p>
+
+          <div class="contact-links">
+            <a href="mailto:arvinthsrinivas@gmail.com" class="contact-link">
+              <div class="contact-link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-link-text">
+                <h4>Email</h4>
+                <p>arvinthsrinivas@gmail.com</p>
+              </div>
+            </a>
+
+            <a href="tel:+4407352694091" class="contact-link">
+              <div class="contact-link-icon" style="background: var(--gradient-secondary);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+              </div>
+              <div class="contact-link-text">
+                <h4>Phone</h4>
+                <p>+44 07352 694091</p>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/arvinthsrinivas" target="_blank" class="contact-link">
+              <div class="contact-link-icon"
+                style="background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </div>
+              <div class="contact-link-text">
+                <h4>LinkedIn</h4>
+                <p>arvinth-srinivasasekar</p>
+              </div>
+            </a>
+
+            <a href="https://github.com/Arvinth16" target="_blank" class="contact-link">
+              <div class="contact-link-icon"
+                style="background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </div>
+              <div class="contact-link-text">
+                <h4>GitHub</h4>
+                <p>Arvinth16</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form reveal">
+          <h3>Send a Message</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about an opportunity or project..."
+                required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Arvinth Srinivasasekar. Built with curiosity and clean code.</p>
+      <div class="footer-links">
+        <a href="mailto:arvinthsrinivas@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/arvinthsrinivas" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Arvinth16" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
