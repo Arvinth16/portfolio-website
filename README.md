@@ -9,7 +9,7 @@ A premium, single-page portfolio website showcasing data science projects, techn
 
 ## 🔗 Live Site
 
-Hosted on GitHub Pages: **[arvinthsrinivas.github.io/portfolio-website](https://arvinthsrinivas.github.io/portfolio-website)**
+Hosted on GitHub Pages: **[arvinthsrinivas.me](https://arvinthsrinivas.me)**
 
 ## Features
 
