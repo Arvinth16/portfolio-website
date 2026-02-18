@@ -267,8 +267,8 @@ function animateParticles() {
     requestAnimationFrame(animateParticles);
 }
 
-initParticles();
-animateParticles();
+// initParticles();
+// animateParticles();
 
 window.addEventListener('resize', () => {
     resizeCanvas();

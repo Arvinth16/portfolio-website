@@ -594,7 +594,7 @@ img {
 /* ===== SKILLS SECTION ===== */
 .skills {
   padding: var(--section-padding);
-  background: var(--bg-secondary);
+  background: transparent;
   position: relative;
 }
 
@@ -1610,4 +1610,14 @@ img {
 ::selection {
   background: rgba(59, 130, 246, 0.3);
   color: var(--text-primary);
+}
+
+/* Space Theme Overrides */
+#particles-canvas {
+  display: none !important;
+}
+
+body {
+  background-color: transparent !important;
+  /* Let space-animations.css handle background */
 }
