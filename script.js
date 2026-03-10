@@ -267,8 +267,8 @@ function animateParticles() {
     requestAnimationFrame(animateParticles);
 }
 
-// initParticles();
-// animateParticles();
+initParticles();
+animateParticles();
 
 window.addEventListener('resize', () => {
     resizeCanvas();
@@ -309,7 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneLink = document.getElementById('phone-link');
     const phoneDisplay = document.getElementById('phone-display');
     const footerEmail = document.getElementById('footer-email-link');
-    const heroEmail = document.getElementById('hero-email-link');
 
     if (emailLink) {
         emailLink.href = 'mai' + 'lto:' + em;
@@ -321,9 +320,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (footerEmail) {
         footerEmail.href = 'mai' + 'lto:' + em;
-    }
-    if (heroEmail) {
-        heroEmail.href = 'mai' + 'lto:' + em;
     }
 });
 
