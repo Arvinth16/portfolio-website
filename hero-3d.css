@@ -1,0 +1,382 @@
+/* ============================================
+   HERO 3D LAYOUT — MoncyDev-inspired
+   ============================================ */
+
+/* Override default hero to be full-screen centered */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    overflow: hidden;
+    background: #080808;
+    padding: 0;
+}
+
+/* Remove the container constraint from hero */
+.hero>.container {
+    display: none;
+}
+
+/* ---- Vertical Social Icons (Far Left) ---- */
+.hero-socials {
+    position: fixed;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-socials a {
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-socials a:hover {
+    color: #a855f7;
+    transform: translateX(4px);
+}
+
+.hero-socials-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(168, 85, 247, 0.5), transparent);
+    margin-top: 4px;
+}
+
+/* ---- 3-Column Hero Grid ---- */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1fr;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 60px 60px 80px;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---- LEFT COLUMN ---- */
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-right: 20px;
+}
+
+.hero-greeting {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: #a855f7;
+    font-weight: 400;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+}
+
+.hero-left h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.hero-left .typed-wrapper {
+    font-size: 1rem;
+    color: #a855f7;
+    margin-bottom: 28px;
+    height: 1.4rem;
+}
+
+.hero-left .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 50px;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+.hero-left .hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.hero-left .hero-stats {
+    display: flex;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+}
+
+.hero-left .hero-stat h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-left .hero-stat p {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+}
+
+/* ---- CENTER COLUMN: Avatar ---- */
+.hero-center {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Big purple-pink glow behind avatar */
+.avatar-glow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center,
+            rgba(139, 92, 246, 0.55) 0%,
+            rgba(168, 85, 247, 0.3) 30%,
+            rgba(236, 72, 153, 0.1) 60%,
+            transparent 75%);
+    filter: blur(30px);
+    animation: glowPulse 4s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+/* 3D tilt container */
+.avatar-container {
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: transform 0.1s ease-out;
+    cursor: none;
+    width: 100%;
+    max-width: 480px;
+    /* Float animation */
+    animation: avatarFloat 5s ease-in-out infinite;
+}
+
+@keyframes avatarFloat {
+
+    0%,
+    100% {
+        transform: perspective(1000px) translateY(0px);
+    }
+
+    50% {
+        transform: perspective(1000px) translateY(-18px);
+    }
+}
+
+.avatar-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom;
+    display: block;
+    filter: drop-shadow(0 20px 60px rgba(139, 92, 246, 0.4));
+    /* Remove max-height so the figure is as tall as the viewport allows */
+}
+
+/* Subtle bottom "floor" reflection */
+.hero-center::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 80px;
+    background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.3), transparent 70%);
+    filter: blur(20px);
+    border-radius: 50%;
+}
+
+/* ---- RIGHT COLUMN: Role text ---- */
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 20px;
+    align-self: center;
+}
+
+.hero-role-pre {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* Outlined text like the reference */
+.hero-role-outline {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin: 0;
+    /* Hollow outline effect */
+    -webkit-text-stroke: 2px #a855f7;
+    color: transparent;
+    text-transform: uppercase;
+}
+
+.hero-role-solid {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.hero-role-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 16px;
+    letter-spacing: 1px;
+}
+
+/* ---- Resume button (fixed bottom right) ---- */
+.resume-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.resume-btn:hover {
+    color: #fff;
+    border-color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+    text-decoration: none;
+}
+
+/* ============================================
+   RESPONSIVE: Mobile
+   ============================================ */
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        padding: 90px 24px 40px;
+        text-align: center;
+        gap: 0;
+    }
+
+    .hero-left {
+        align-items: center;
+        order: 2;
+    }
+
+    .hero-center {
+        height: 50vh;
+        order: 1;
+    }
+
+    .hero-right {
+        align-items: center;
+        order: 3;
+        padding-left: 0;
+        padding-top: 20px;
+    }
+
+    .hero-socials {
+        position: absolute;
+        left: 12px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .avatar-glow {
+        width: 280px;
+        height: 280px;
+    }
+
+    .avatar-container {
+        max-width: 280px;
+    }
+
+    .hero-left .hero-stats {
+        justify-content: center;
+    }
+
+    .hero-left .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-left .hero-badge {
+        margin: 0 auto 20px;
+    }
+
+    .resume-btn {
+        bottom: 12px;
+        right: 12px;
+        font-size: 0.65rem;
+        padding: 8px 12px;
+    }
+}
