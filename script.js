@@ -1,12 +1,12 @@
 // ===== TYPING ANIMATION =====
 const typedPhrases = [
     'Data Scientist',
-    'ML Engineer',
-    'Problem Solver',
-    'Python Developer',
-    'NLP Enthusiast',
-    'Curious Learner'
+    'AI Engineer',
+    'ML Practitioner',
+    'NLP Engineer',
+    'Deep Learning Researcher',
 ];
+
 
 let phraseIndex = 0;
 let charIndex = 0;
