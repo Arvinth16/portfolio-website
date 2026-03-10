@@ -13,17 +13,17 @@
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
 
-  /* Grey spectrum accents */
-  --accent-blue: #e2e8f0;
-  --accent-purple: #94a3b8;
-  --accent-teal: #cbd5e1;
-  --accent-pink: #e2e8f0;
-  --accent-amber: #cbd5e1;
+  /* Turquoise accent palette */
+  --accent-blue: #06b6d4;
+  --accent-purple: #0891b2;
+  --accent-teal: #22d3ee;
+  --accent-pink: #67e8f9;
+  --accent-amber: #06b6d4;
 
-  --gradient-primary: linear-gradient(135deg, #e2e8f0, #94a3b8);
-  --gradient-secondary: linear-gradient(135deg, #94a3b8, #cbd5e1);
-  --gradient-hero: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #94a3b8 100%);
-  --gradient-text: linear-gradient(90deg, #ffffff, #e2e8f0, #94a3b8);
+  --gradient-primary: linear-gradient(135deg, #06b6d4, #0891b2);
+  --gradient-secondary: linear-gradient(135deg, #0891b2, #22d3ee);
+  --gradient-hero: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
+  --gradient-text: linear-gradient(90deg, #22d3ee, #06b6d4, #0891b2);
 
   /* Spacing */
   --section-padding: 100px 0;
@@ -41,7 +41,7 @@
 
   /* Shadows */
   --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 40px rgba(255, 255, 255, 0.04);
+  --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.12);
 }
 
 /* ===== RESET & BASE ===== */
@@ -653,8 +653,8 @@ img {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(6, 182, 212, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -663,18 +663,18 @@ img {
 }
 
 .skill-category:nth-child(2) .skill-category-icon {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(6, 182, 212, 0.12);
+  border-color: rgba(6, 182, 212, 0.2);
 }
 
 .skill-category:nth-child(3) .skill-category-icon {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(6, 182, 212, 0.1);
+  border-color: rgba(6, 182, 212, 0.18);
 }
 
 .skill-category:nth-child(4) .skill-category-icon {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(6, 182, 212, 0.08);
+  border-color: rgba(6, 182, 212, 0.15);
 }
 
 .skill-category h3 {
@@ -1228,8 +1228,8 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(6, 182, 212, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
