@@ -653,7 +653,8 @@ img {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: var(--gradient-primary);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -662,15 +663,18 @@ img {
 }
 
 .skill-category:nth-child(2) .skill-category-icon {
-  background: var(--gradient-secondary);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .skill-category:nth-child(3) .skill-category-icon {
-  background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .skill-category:nth-child(4) .skill-category-icon {
-  background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .skill-category h3 {
@@ -1224,7 +1228,8 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: var(--gradient-primary);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
